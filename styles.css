@@ -197,4 +197,34 @@ footer {
     .nav-links li {
         margin: 0 15px;
     }
+}
+
+/* Add these media queries to your existing CSS */
+@media screen and (max-width: 768px) {
+  /* Make all media-text containers stack vertically with consistent order */
+  .media-text, .media-text-reverse {
+    flex-direction: column !important;
+  }
+  
+  /* On mobile, always put text content before media */
+  .media-text .media-text-media,
+  .media-text-reverse .media-text-media {
+    order: 2 !important;
+  }
+  
+  .media-text .media-text-content,
+  .media-text-reverse .media-text-content {
+    order: 1 !important;
+  }
+  
+  /* Add some spacing between content and image */
+  .media-text-content {
+    margin-bottom: 20px;
+  }
+  
+  /* Make sure images are properly sized */
+  .media-text-media img {
+    width: 100%;
+    height: auto;
+  }
 } 

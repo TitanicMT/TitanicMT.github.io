@@ -1,0 +1,68 @@
+/* More specific styling with !important to override any conflicting styles */
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.social-icon {
+  margin: 0 20px;
+  text-decoration: none !important; /* Remove underline */
+  border: none !important; /* Remove any borders */
+  outline: none !important; /* Remove outline */
+  background: transparent !important; /* Remove any background */
+  display: inline-block;
+  position: relative;
+}
+
+/* Remove any default styling that might be causing the blue bar */
+.social-icon::after,
+.social-icon::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* New hover animation */
+.social-icon svg {
+  transition: transform 0.3s ease, fill 0.3s ease;
+  fill: #333333;
+}
+
+.social-icon:hover svg {
+  transform: scale(1.2) translateY(-5px); /* Scale up and move slightly up */
+  fill: #0077b5; /* LinkedIn blue */
+}
+
+.social-icon:nth-child(2):hover svg {
+  fill: #333; /* GitHub darker gray */
+}
+
+.social-icon:nth-child(3):hover svg {
+  fill: #ea4335; /* Gmail red */
+}
+
+/* More forceful styling for black icons */
+.social-links a i,
+.social-icon i,
+footer i,
+.fab,
+.fas {
+  color: #333333 !important;
+}
+
+/* Hover effects with stronger selectors */
+.social-links a:hover i.fa-linkedin,
+.social-icon:hover i.fa-linkedin {
+  color: #0077b5 !important;
+}
+
+.social-links a:hover i.fa-github,
+.social-icon:hover i.fa-github {
+  color: #333 !important;
+}
+
+.social-links a:hover i.fa-envelope,
+.social-icon:hover i.fa-envelope {
+  color: #ea4335 !important;
+} 

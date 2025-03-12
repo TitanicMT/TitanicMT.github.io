@@ -224,4 +224,25 @@ footer {
     width: 100%;
     height: auto;
   }
+  
+  /* Reduce space between "Check out the website" link and project image */
+  a[href*="website"] {
+    display: inline-block;
+    margin-bottom: 15px !important;
+  }
+  
+  /* Reduce any spacers that might be causing the gap */
+  .spacer {
+    height: 20px !important;
+  }
+  
+  .spacer-small {
+    height: 10px !important;
+  }
+  
+  /* Reduce padding in sections that might be causing extra space */
+  section, .section {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
 } 

@@ -49,20 +49,24 @@ a:hover {
     text-decoration: underline;
 }
 
+/* DESKTOP STYLES (default) */
+/* Spacers */
 .spacer {
-    height: 80px;
+    height: 100px; /* Increased from 80px for more space between projects */
 }
 
 .spacer-small {
-    height: 50px;
+    height: 60px; /* Increased from 50px */
 }
 
-/* Media Text Layout */
+/* Project Layout - Desktop */
 .media-text {
     display: flex;
     align-items: center;
-    margin-bottom: 40px;
-    gap: 40px;
+    margin-bottom: 80px; /* Increased from 40px for more space between projects */
+    gap: 60px; /* Increased from 40px */
+    padding: 20px 0;
+    border-bottom: 1px solid #f0f0f0; /* Subtle separator between projects */
 }
 
 .media-text-reverse {
@@ -70,11 +74,11 @@ a:hover {
 }
 
 .media-text-content {
-    flex: 35%;
+    flex: 40%;
 }
 
 .media-text-media {
-    flex: 65%;
+    flex: 60%;
 }
 
 .media-text img {
@@ -82,6 +86,35 @@ a:hover {
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.media-text img:hover {
+    transform: scale(1.02);
+}
+
+/* Project links */
+.project-link {
+    display: inline-block;
+    margin-top: 15px;
+    font-weight: 500;
+    padding: 8px 0;
+    position: relative;
+}
+
+.project-link:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0073aa;
+    transition: width 0.3s;
+}
+
+.project-link:hover:after {
+    width: 100%;
 }
 
 /* Video Embed */
@@ -111,7 +144,9 @@ header {
 footer {
     text-align: center;
     color: #666;
-    padding: 20px 0;
+    padding: 30px 0;
+    margin-top: 60px;
+    border-top: 1px solid #eee;
 }
 
 /* Navigation */
@@ -162,31 +197,62 @@ footer {
     width: 100%;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 36px;
-    }
-    
-    h3 {
-        font-size: 24px;
-    }
-    
+/* TABLET STYLES */
+@media (max-width: 992px) {
     .media-text {
-        flex-direction: column;
-    }
-    
-    .media-text-reverse {
-        flex-direction: column;
+        gap: 40px;
+        margin-bottom: 60px;
     }
     
     .spacer {
+        height: 70px;
+    }
+    
+    .spacer-small {
         height: 40px;
     }
     
+    h1 {
+        font-size: 40px;
+    }
+    
+    h2 {
+        font-size: 32px;
+    }
+}
+
+/* MOBILE STYLES */
+@media (max-width: 768px) {
+    /* Typography */
+    h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+    
+    h3 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+    
+    /* Spacing */
+    .spacer {
+        height: 30px !important;
+    }
+    
+    .spacer-small {
+        height: 15px !important;
+    }
+    
+    /* Navigation */
     .main-nav {
         flex-direction: column;
         text-align: center;
+        padding: 15px 0;
     }
     
     .nav-links {

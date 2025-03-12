@@ -204,6 +204,7 @@ footer {
   /* Make all media-text containers stack vertically with consistent order */
   .media-text, .media-text-reverse {
     flex-direction: column !important;
+    margin-bottom: 60px !important;
   }
   
   /* On mobile, always put text content before media */
@@ -215,11 +216,7 @@ footer {
   .media-text .media-text-content,
   .media-text-reverse .media-text-content {
     order: 1 !important;
-  }
-  
-  /* Add some spacing between content and image */
-  .media-text-content {
-    margin-bottom: 20px;
+    margin-bottom: 10px !important;
   }
   
   /* Make sure images are properly sized */

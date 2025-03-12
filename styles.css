@@ -281,19 +281,22 @@ header .container {
 .mobile-sidebar {
     position: fixed;
     top: 0;
-    right: -250px; /* Hidden off-screen */
-    width: 250px;
+    left: -280px; /* Changed from right to left positioning and increased width */
+    width: 280px;
     height: 100%;
     background-color: #e6e6e6; /* Darker light grey */
     z-index: 1001;
-    transition: right 0.3s ease;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease; /* Changed from right to left transition */
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1); /* Changed shadow direction */
     padding: 20px;
     display: none; /* Hide on desktop by default */
+    overflow-y: auto; /* Allow scrolling if content is too tall */
+    visibility: hidden; /* Ensure it's completely hidden */
 }
 
 .mobile-sidebar.active {
-    right: 0;
+    left: 0; /* Changed from right to left */
+    visibility: visible; /* Make visible when active */
 }
 
 .mobile-sidebar-close {
@@ -302,6 +305,7 @@ header .container {
     font-size: 24px;
     cursor: pointer;
     margin-bottom: 20px;
+    display: block;
 }
 
 .mobile-nav-links {
@@ -438,9 +442,21 @@ footer p {
         margin-bottom: 30px;
     }
     
+    /* Reverse the logo and hamburger menu positions */
+    .main-nav .container {
+        flex-direction: row-reverse; /* Reverse the order of elements */
+    }
+    
     /* Show hamburger menu, hide regular nav */
     .hamburger-menu {
         display: flex;
+        margin-right: auto; /* Push to the left */
+        margin-left: 0;
+    }
+    
+    .logo {
+        margin-left: auto; /* Push to the right */
+        margin-right: 0;
     }
     
     .nav-links {
@@ -459,8 +475,25 @@ footer p {
         padding-top: 60px; /* Adjusted for mobile header height */
     }
     
-    /* Show mobile sidebar on mobile */
+    /* Show mobile sidebar on mobile but ensure it's hidden by default */
     .mobile-sidebar {
+        display: block;
+        left: -280px; /* Ensure it's off-screen by default */
+        visibility: hidden; /* Completely hide it */
+        width: 280px; /* Slightly wider for better usability */
+    }
+    
+    .mobile-sidebar.active {
+        visibility: visible; /* Make visible when active */
+    }
+    
+    /* Mobile sidebar close button positioning */
+    .mobile-sidebar-close {
+        text-align: right;
+        color: #333;
+        font-size: 24px;
+        cursor: pointer;
+        margin-bottom: 20px;
         display: block;
     }
     
@@ -549,5 +582,17 @@ footer p {
     .personal-intro {
         margin-top: 15px; /* Adjusted for small mobile */
         padding: 15px 0;
+    }
+    
+    /* Ensure sidebar is properly hidden on small devices too */
+    .mobile-sidebar {
+        left: -280px;
+        width: 280px;
+    }
+    
+    /* Adjust hamburger menu size for smaller screens */
+    .hamburger-menu {
+        width: 26px;
+        height: 18px;
     }
 } 

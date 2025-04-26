@@ -43,6 +43,53 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
+    // Highlight Reel Functionality
+    const highlightReel = document.querySelector('.highlight-reel-container');
+    if (highlightReel) {
+        const highlightReelSection = document.querySelector('.highlight-reel-section');
+        
+        // Show/hide scroll indicators based on scroll position
+        function updateScrollIndicators() {
+            const isScrolledLeft = highlightReel.scrollLeft <= 10;
+            const isScrolledRight = highlightReel.scrollLeft >= (highlightReel.scrollWidth - highlightReel.offsetWidth - 10);
+            
+            // Update before pseudo-element (left indicator)
+            highlightReelSection.style.setProperty('--left-indicator-opacity', isScrolledLeft ? '0' : '1');
+            
+            // Update after pseudo-element (right indicator)
+            highlightReelSection.style.setProperty('--right-indicator-opacity', isScrolledRight ? '0' : '1');
+        }
+        
+        // Set initial state
+        updateScrollIndicators();
+        
+        // Update on scroll
+        highlightReel.addEventListener('scroll', updateScrollIndicators);
+        
+        // Add keyboard navigation for accessibility
+        highlightReel.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                highlightReel.scrollBy({ left: -300, behavior: 'smooth' });
+                e.preventDefault();
+            } else if (e.key === 'ArrowRight') {
+                highlightReel.scrollBy({ left: 300, behavior: 'smooth' });
+                e.preventDefault();
+            }
+        });
+        
+        // Make cards focusable for keyboard navigation
+        document.querySelectorAll('.highlight-card').forEach(card => {
+            card.setAttribute('tabindex', '0');
+        });
+        
+        // Resize observer for when window size changes
+        const resizeObserver = new ResizeObserver(() => {
+            updateScrollIndicators();
+        });
+        
+        resizeObserver.observe(highlightReel);
+    }
 });
 
 // Smooth scrolling for navigation links

@@ -3,29 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zongheng (Marcus) Tian - UI/UX Designer, Game Developer, and Creative Technologist showcasing a portfolio of digital projects, games, and design work.">
+    <meta name="keywords" content="UI/UX Design, Game Development, Portfolio, Marcus Tian, Zongheng Tian">
+    <meta name="author" content="Zongheng (Marcus) Tian">
+    <meta property="og:title" content="Zongheng (Marcus) Tian - Portfolio">
+    <meta property="og:description" content="UI/UX Designer, Game Developer, and Creative Technologist showcasing innovative digital projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://titanicmt.github.io/">
+    <meta name="theme-color" content="#3490dc">
+    
     <title>Zongheng (Marcus) Tian - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%233490dc' d='M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 22c-5.52 0-10-4.48-10-10S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm-1-8h2v2h-2v-2zm0-10h2v8h-2V4z'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%233490dc' d='M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 22c-5.52 0-10-4.48-10-10S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm-1-8h2v2h-2v-2zm0-10h2v8h-2V4z'/%3E%3C/svg%3E">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#about" class="skip-to-content">Skip to content</a>
+
     <!-- Mobile Sidebar -->
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <div class="mobile-sidebar-close" id="closeSidebar">
+    <aside class="mobile-sidebar" id="mobileSidebar">
+        <div class="mobile-sidebar-close" id="closeSidebar" aria-label="Close menu" role="button" tabindex="0">
             <i class="fas fa-times"></i>
         </div>
         <ul class="mobile-nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li>
+                <button class="theme-toggle" id="themeToggleMobile" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </li>
         </ul>
-    </div>
+    </aside>
 
     <!-- Fixed Navigation -->
-    <nav class="main-nav">
+    <nav class="main-nav" role="navigation">
         <div class="container">
             <div class="logo">
                 <h2>Marcus Tian</h2>
@@ -35,9 +61,14 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
             </ul>
             <!-- Hamburger Menu for Mobile -->
-            <div class="hamburger-menu" id="hamburgerMenu">
+            <div class="hamburger-menu" id="hamburgerMenu" aria-label="Menu" role="button" tabindex="0">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -45,22 +76,19 @@
         </div>
     </nav>
 
-    <!-- Empty header just for spacing -->
-    <header></header>
-    
-    <div class="container">
-        <!-- Personal Introduction -->
-        <section id="about" class="personal-intro">
-            <h1>Hi, I'm Zongheng (Marcus) Tian.</h1>
-            <p class="subtitle">UI/UX Designer, Passionate Gamer, and Aspiring Game Developer.</p>
-        </section>
-        
-        <main>
+    <main>
+        <div class="container">
+            <!-- Personal Introduction -->
+            <section id="about" class="personal-intro">
+                <h1>Hi, I'm Zongheng (Marcus) Tian.</h1>
+                <p class="subtitle">UI/UX Designer, Passionate Gamer, and Aspiring Game Developer.</p>
+            </section>
+            
             <section id="projects">
                 <h2>My Projects</h2>
                 
                 <!-- Project 1: Helping Commuters -->
-                <div class="media-text media-text-reverse">
+                <article class="media-text media-text-reverse">
                     <div class="media-text-content">
                         <h3>Helping Commuters Find Quality Companions</h3>
                         <p>A Complete UI/UX Project that encompasses key UX processes such as User Research, Journey Mapping, Wireframing, Prototyping, Usability Testing and more.</p>
@@ -68,18 +96,18 @@
                     </div>
                     <div class="media-text-media">
                         <a href="https://healthyfitcanadians.wordpress.com/" target="_blank" rel="noreferrer noopener">
-                            <img src="https://zonghengtian.wordpress.com/wp-content/uploads/2025/01/frame-43.png" alt="Helping Commuters Project" />
+                            <img src="https://zonghengtian.wordpress.com/wp-content/uploads/2025/01/frame-43.png" alt="Helping Commuters Project" loading="lazy" />
                         </a>
                     </div>
-                </div>
+                </article>
                 
                 <div class="spacer"></div>
                 
                 <!-- Project 2: Information Architecture -->
-                <div class="media-text">
+                <article class="media-text">
                     <div class="media-text-media">
                         <a href="https://ethicalandsocialissuesininformationsystems.wordpress.com/" target="_blank" rel="noreferrer noopener">
-                            <img src="https://zonghengtian.wordpress.com/wp-content/uploads/2025/01/ux-tweak.jpg" alt="Information Architecture Projects" />
+                            <img src="https://zonghengtian.wordpress.com/wp-content/uploads/2025/01/ux-tweak.jpg" alt="Information Architecture Projects" loading="lazy" />
                         </a>
                     </div>
                     <div class="media-text-content">
@@ -87,31 +115,31 @@
                         <p>A series of projects focus on analyzing the Information Architecture of various websites by using tools such as UX Tweak to conduct tree testing and card sorting and using Screaming Frog SEO Spider to conduct content inventory and audit.</p>
                         <a href="https://zonghengtian.wordpress.com/hi-im-zongheng-a-new-guaduate-from-uoft/information-architechture-projects/" target="_blank" rel="noreferrer noopener">Check Out More Details</a>
                     </div>
-                </div>
+                </article>
                 
                 <div class="spacer"></div>
                 
                 <!-- Project 3: Healthy Fit Canadians -->
-                <div class="media-text media-text-reverse">
+                <article class="media-text media-text-reverse">
                     <div class="media-text-content">
                         <h3>Healthy Fit Canadians</h3>
-                        <p>A website that helps fellow Canadians to adopt a heathier lifestyle</p>
+                        <p>A website that helps fellow Canadians to adopt a healthier lifestyle</p>
                         <a rel="noreferrer noopener" href="https://healthyfitcanadians.wordpress.com/" target="_blank">Check out the website</a>
                     </div>
                     <div class="media-text-media">
                         <a href="https://healthyfitcanadians.wordpress.com/" target="_blank" rel="noreferrer noopener">
-                            <img src="https://zonghengtian.files.wordpress.com/2023/03/fitness-website-homepage.png" alt="Healthy Fit Canadians website" />
+                            <img src="https://zonghengtian.files.wordpress.com/2023/03/fitness-website-homepage.png" alt="Healthy Fit Canadians website" loading="lazy" />
                         </a>
                     </div>
-                </div>
+                </article>
                 
                 <div class="spacer"></div>
                 
                 <!-- Project 4: Information Systems -->
-                <div class="media-text">
+                <article class="media-text">
                     <div class="media-text-media">
                         <a href="https://ethicalandsocialissuesininformationsystems.wordpress.com/" target="_blank" rel="noreferrer noopener">
-                            <img src="https://zonghengtian.files.wordpress.com/2023/03/is-website-homepage-1.png" alt="Information Systems website" />
+                            <img src="https://zonghengtian.files.wordpress.com/2023/03/is-website-homepage-1.png" alt="Information Systems website" loading="lazy" />
                         </a>
                     </div>
                     <div class="media-text-content">
@@ -119,12 +147,12 @@
                         <p>A website educating the importance of Information Systems</p>
                         <a rel="noreferrer noopener" href="https://ethicalandsocialissuesininformationsystems.wordpress.com/" target="_blank">Check out the website</a>
                     </div>
-                </div>
+                </article>
                 
                 <div class="spacer"></div>
                 
                 <!-- Unity Christmas Project -->
-                <div class="media-text media-text-reverse">
+                <article class="media-text media-text-reverse">
                     <div class="media-text-content">
                         <h3>Unity Christmas Themed Interactive VR App</h3>
                         <p>An interactive VR application built in Unity with a festive Christmas theme, showcasing my skills in 3D environment development and VR interaction design.</p>
@@ -135,12 +163,12 @@
                             <iframe src="https://www.youtube.com/embed/sw1eJ1qFdUQ" title="Christmas Themed VR App" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
-                </div>
+                </article>
                 
                 <div class="spacer"></div>
                 
                 <!-- CycleCanton Marketing Video -->
-                <div class="media-text">
+                <article class="media-text">
                     <div class="media-text-media">
                         <div class="video-container">
                             <iframe src="https://www.youtube.com/embed/UmOCOsrHrJQ" title="CycleCanton Marketing Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -151,84 +179,84 @@
                         <p>A promotional video I created for CycleCanton, showcasing my video production and marketing design skills.</p>
                         <a href="https://www.youtube.com/embed/UmOCOsrHrJQ" target="_blank" rel="noreferrer noopener">Watch Full Video</a>
                     </div>
-                </div>
+                </article>
                 
                 <div class="spacer"></div>
                 
                 <!-- VEMP Happiness App -->
-                <div class="media-text media-text-reverse">
+                <article class="media-text media-text-reverse">
                     <div class="media-text-content">
                         <h3>VEMP Happiness App</h3>
                         <p>An Android App made using Android Studio that takes pictures of human faces as input, and provides a cheerful music playlist when it detects sadness in the face through Microsoft's Face API</p>
                     </div>
                     <div class="media-text-media">
-                        <img src="https://zonghengtian.files.wordpress.com/2023/03/affective-app-screenshot-1.png" alt="VEMP Happiness App" />
+                        <img src="https://zonghengtian.files.wordpress.com/2023/03/affective-app-screenshot-1.png" alt="VEMP Happiness App" loading="lazy" />
                     </div>
-                </div>
+                </article>
                 
                 <div class="spacer"></div>
                 
                 <!-- VEMP Well Sleep App -->
-                <div class="media-text">
+                <article class="media-text">
                     <div class="media-text-media">
-                        <img src="https://zonghengtian.files.wordpress.com/2023/03/app-inventor-project.png" alt="VEMP Well Sleep App" />
+                        <img src="https://zonghengtian.files.wordpress.com/2023/03/app-inventor-project.png" alt="VEMP Well Sleep App" loading="lazy" />
                     </div>
                     <div class="media-text-content">
                         <h3>VEMP Well Sleep App</h3>
                         <p>An Android App made using MIT App Inventor that promotes and helps the users to sleep better by providing them info on the benefits of sleep, as well as a functional alarm and tracking system for them to record their sleep times</p>
                     </div>
-                </div>
+                </article>
                 
                 <div class="spacer"></div>
                 
                 <!-- SLASHER Board Game -->
-                <div class="media-text media-text-reverse">
+                <article class="media-text media-text-reverse">
                     <div class="media-text-content">
                         <h3>SLASHER Board Game</h3>
-                        <p>A Slasher movie inspired multi-player board game that gives the players the oppotuinities to work together and survive</p>
+                        <p>A Slasher movie inspired multi-player board game that gives the players the opportunities to work together and survive</p>
                     </div>
                     <div class="media-text-media">
-                        <img src="https://zonghengtian.files.wordpress.com/2023/03/img_2810.jpeg" alt="SLASHER Board Game" />
+                        <img src="https://zonghengtian.files.wordpress.com/2023/03/img_2810.jpeg" alt="SLASHER Board Game" loading="lazy" />
                     </div>
-                </div>
+                </article>
                 
                 <div class="spacer"></div>
                 
                 <!-- House Adventure -->
-                <div class="media-text">
+                <article class="media-text">
                     <div class="media-text-media">
-                        <img src="https://zonghengtian.files.wordpress.com/2023/03/screenshot-2023-03-14-at-15.51.14.png" alt="House Adventure" />
+                        <img src="https://zonghengtian.files.wordpress.com/2023/03/screenshot-2023-03-14-at-15.51.14.png" alt="House Adventure" loading="lazy" />
                     </div>
                     <div class="media-text-content">
                         <h3>House Adventure (Interactive Story)</h3>
                         <p>An interactive story that has a fully functional combat system as well as a basic inventory system</p>
                         <a href="https://titanicmt.itch.io/house-adventure" target="_blank" rel="noreferrer noopener">Check Out the Game</a>
                     </div>
-                </div>
+                </article>
             </section>
-        </main>
-    </div>
+        </div>
+    </main>
         
     <footer id="contact">
         <div class="container">
             <h2>Contact Me</h2>
             <div class="custom-social-container">
                 <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/zongheng-tian/" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/zongheng-tian/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                     </svg>
                 </a>
                 
                 <!-- GitHub -->
-                <a href="https://github.com/TitanicMT" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/TitanicMT" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                     </svg>
                 </a>
                 
                 <!-- Email -->
-                <a href="mailto:zongheng.tian@mail.utoronto.ca">
+                <a href="mailto:zongheng.tian@mail.utoronto.ca" aria-label="Email me">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                         <path d="M12 12.713l-11.985-9.713h23.971l-11.986 9.713zm-5.425-1.822l-6.575-5.329v12.501l6.575-7.172zm10.85 0l6.575 7.172v-12.501l-6.575 5.329zm-1.557 1.261l-3.868 3.135-3.868-3.135-8.11 8.848h23.956l-8.11-8.848z"/>
                     </svg>
@@ -238,30 +266,100 @@
         </div>
     </footer>
 
-    <!-- Add JavaScript for mobile menu -->
+    <!-- Add JavaScript for mobile menu and dark mode -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu elements
             const hamburger = document.getElementById('hamburgerMenu');
             const sidebar = document.getElementById('mobileSidebar');
             const overlay = document.getElementById('sidebarOverlay');
             const closeBtn = document.getElementById('closeSidebar');
             
-            // Toggle sidebar
+            // Dark mode elements
+            const themeToggle = document.getElementById('themeToggle');
+            const themeToggleMobile = document.getElementById('themeToggleMobile');
+            
+            // Check for saved theme preference or respect OS preference
+            const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+            const currentTheme = localStorage.getItem("theme");
+            
+            // Apply theme preference
+            if (currentTheme === "dark") {
+                document.body.setAttribute("data-theme", "dark");
+                updateThemeIcons(true);
+            } else if (currentTheme === "light") {
+                document.body.setAttribute("data-theme", "light");
+                updateThemeIcons(false);
+            } else if (prefersDarkScheme.matches) {
+                document.body.setAttribute("data-theme", "dark");
+                updateThemeIcons(true);
+            }
+            
+            // Update moon/sun icons
+            function updateThemeIcons(isDark) {
+                const themeIcons = [
+                    themeToggle.querySelector('i'),
+                    themeToggleMobile.querySelector('i')
+                ];
+                
+                themeIcons.forEach(icon => {
+                    if (isDark) {
+                        icon.classList.remove('fa-moon');
+                        icon.classList.add('fa-sun');
+                    } else {
+                        icon.classList.remove('fa-sun');
+                        icon.classList.add('fa-moon');
+                    }
+                });
+            }
+            
+            // Theme toggle click handler
+            function toggleTheme() {
+                if (document.body.getAttribute("data-theme") === "dark") {
+                    document.body.removeAttribute("data-theme");
+                    localStorage.setItem("theme", "light");
+                    updateThemeIcons(false);
+                } else {
+                    document.body.setAttribute("data-theme", "dark");
+                    localStorage.setItem("theme", "dark");
+                    updateThemeIcons(true);
+                }
+            }
+            
+            // Toggle sidebar function
             function toggleSidebar() {
                 sidebar.classList.toggle('active');
                 overlay.style.display = sidebar.classList.contains('active') ? 'block' : 'none';
                 document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
             }
             
-            // Event listeners
+            // Event listeners for mobile menu
             hamburger.addEventListener('click', toggleSidebar);
+            hamburger.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    toggleSidebar();
+                    e.preventDefault();
+                }
+            });
+            
             closeBtn.addEventListener('click', toggleSidebar);
+            closeBtn.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    toggleSidebar();
+                    e.preventDefault();
+                }
+            });
+            
             overlay.addEventListener('click', toggleSidebar);
             
             // Close sidebar when clicking a mobile nav link
             document.querySelectorAll('.mobile-nav-links a').forEach(link => {
                 link.addEventListener('click', toggleSidebar);
             });
+            
+            // Event listeners for theme toggle
+            themeToggle.addEventListener('click', toggleTheme);
+            themeToggleMobile.addEventListener('click', toggleTheme);
             
             // Add scroll effect to header
             window.addEventListener('scroll', function() {

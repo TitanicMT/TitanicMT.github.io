@@ -87,152 +87,208 @@
             <section id="projects">
                 <h2>My Projects</h2>
                 
-                <!-- Project 1: Helping Commuters -->
-                <article class="media-text media-text-reverse">
-                    <div class="media-text-content">
-                        <h3>Helping Commuters Find Quality Companions</h3>
-                        <p>A Complete UI/UX Project that encompasses key UX processes such as User Research, Journey Mapping, Wireframing, Prototyping, Usability Testing and more.</p>
-                        <a href="https://chipped-carpet-f30.notion.site/Helping-Commuters-Find-Quality-Companions-1568912eb0b580058fc5d5b8029d5383?pvs=4" target="_blank" rel="noreferrer noopener">Check Out More Details</a>
-                    </div>
-                    <div class="media-text-media">
-                        <a href="https://healthyfitcanadians.wordpress.com/" target="_blank" rel="noreferrer noopener">
-                            <img src="https://zonghengtian.wordpress.com/wp-content/uploads/2025/01/frame-43.png" alt="Helping Commuters Project" loading="lazy" />
-                        </a>
-                    </div>
-                </article>
+                <!-- Project Category Filters -->
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="uiux">UI/UX Design</button>
+                    <button class="filter-btn" data-filter="web">Web Development</button>
+                    <button class="filter-btn" data-filter="game">Game Development</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+                </div>
                 
-                <div class="spacer"></div>
+                <!-- Featured Project -->
+                <div class="featured-project">
+                    <h3>Helping Commuters Find Quality Companions</h3>
+                    <p>A Complete UI/UX Project that encompasses key UX processes such as User Research, Journey Mapping, Wireframing, Prototyping, Usability Testing and more.</p>
+                    <img src="https://zonghengtian.wordpress.com/wp-content/uploads/2025/01/frame-43.png" alt="Helping Commuters Project" loading="lazy">
+                    <a href="https://chipped-carpet-f30.notion.site/Helping-Commuters-Find-Quality-Companions-1568912eb0b580058fc5d5b8029d5383?pvs=4" target="_blank" rel="noreferrer noopener" class="btn">View Case Study</a>
+                </div>
                 
-                <!-- Project 2: Information Architecture -->
-                <article class="media-text">
-                    <div class="media-text-media">
-                        <a href="https://ethicalandsocialissuesininformationsystems.wordpress.com/" target="_blank" rel="noreferrer noopener">
-                            <img src="https://zonghengtian.wordpress.com/wp-content/uploads/2025/01/ux-tweak.jpg" alt="Information Architecture Projects" loading="lazy" />
-                        </a>
-                    </div>
-                    <div class="media-text-content">
-                        <h3>Information Architecture Projects</h3>
-                        <p>A series of projects focus on analyzing the Information Architecture of various websites by using tools such as UX Tweak to conduct tree testing and card sorting and using Screaming Frog SEO Spider to conduct content inventory and audit.</p>
-                        <a href="https://zonghengtian.wordpress.com/hi-im-zongheng-a-new-guaduate-from-uoft/information-architechture-projects/" target="_blank" rel="noreferrer noopener">Check Out More Details</a>
-                    </div>
-                </article>
-                
-                <div class="spacer"></div>
-                
-                <!-- Project 3: Healthy Fit Canadians -->
-                <article class="media-text media-text-reverse">
-                    <div class="media-text-content">
-                        <h3>Healthy Fit Canadians</h3>
-                        <p>A website that helps fellow Canadians to adopt a healthier lifestyle</p>
-                        <a rel="noreferrer noopener" href="https://healthyfitcanadians.wordpress.com/" target="_blank">Check out the website</a>
-                    </div>
-                    <div class="media-text-media">
-                        <a href="https://healthyfitcanadians.wordpress.com/" target="_blank" rel="noreferrer noopener">
-                            <img src="https://zonghengtian.files.wordpress.com/2023/03/fitness-website-homepage.png" alt="Healthy Fit Canadians website" loading="lazy" />
-                        </a>
-                    </div>
-                </article>
-                
-                <div class="spacer"></div>
-                
-                <!-- Project 4: Information Systems -->
-                <article class="media-text">
-                    <div class="media-text-media">
-                        <a href="https://ethicalandsocialissuesininformationsystems.wordpress.com/" target="_blank" rel="noreferrer noopener">
-                            <img src="https://zonghengtian.files.wordpress.com/2023/03/is-website-homepage-1.png" alt="Information Systems website" loading="lazy" />
-                        </a>
-                    </div>
-                    <div class="media-text-content">
-                        <h3>Information Systems</h3>
-                        <p>A website educating the importance of Information Systems</p>
-                        <a rel="noreferrer noopener" href="https://ethicalandsocialissuesininformationsystems.wordpress.com/" target="_blank">Check out the website</a>
-                    </div>
-                </article>
-                
-                <div class="spacer"></div>
-                
-                <!-- Unity Christmas Project -->
-                <article class="media-text media-text-reverse">
-                    <div class="media-text-content">
-                        <h3>Unity Christmas Themed Interactive VR App</h3>
-                        <p>An interactive VR application built in Unity with a festive Christmas theme, showcasing my skills in 3D environment development and VR interaction design.</p>
-                        <a href="https://www.youtube.com/watch?v=sw1eJ1qFdUQ" target="_blank" rel="noreferrer noopener">Watch Demo Video</a>
-                    </div>
-                    <div class="media-text-media">
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/sw1eJ1qFdUQ" title="Christmas Themed VR App" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <!-- Projects Grid -->
+                <div class="projects-grid">
+                    <!-- Information Architecture Project -->
+                    <div class="project-card" data-category="uiux web">
+                        <div class="project-img">
+                            <img src="https://zonghengtian.wordpress.com/wp-content/uploads/2025/01/ux-tweak.jpg" alt="Information Architecture Projects" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag">UI/UX</span>
+                                <span class="project-tag">Tree Testing</span>
+                                <span class="project-tag">Card Sorting</span>
+                            </div>
+                            <h3 class="project-title">Information Architecture Projects</h3>
+                            <p class="project-description">A series of projects analyzing website Information Architecture using UX Tweak for tree testing and card sorting, and Screaming Frog SEO Spider for content inventory.</p>
+                            <div class="project-links">
+                                <a href="https://zonghengtian.wordpress.com/hi-im-zongheng-a-new-guaduate-from-uoft/information-architechture-projects/" target="_blank" rel="noreferrer noopener" class="project-link">
+                                    View Details <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </article>
-                
-                <div class="spacer"></div>
-                
-                <!-- CycleCanton Marketing Video -->
-                <article class="media-text">
-                    <div class="media-text-media">
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/UmOCOsrHrJQ" title="CycleCanton Marketing Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    
+                    <!-- Healthy Fit Canadians -->
+                    <div class="project-card" data-category="web">
+                        <div class="project-img">
+                            <img src="https://zonghengtian.files.wordpress.com/2023/03/fitness-website-homepage.png" alt="Healthy Fit Canadians website" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag">Web Design</span>
+                                <span class="project-tag">Health</span>
+                                <span class="project-tag">Wordpress</span>
+                            </div>
+                            <h3 class="project-title">Healthy Fit Canadians</h3>
+                            <p class="project-description">A website that helps fellow Canadians to adopt a healthier lifestyle with nutritional tips, workout guides, and wellness resources.</p>
+                            <div class="project-links">
+                                <a href="https://healthyfitcanadians.wordpress.com/" target="_blank" rel="noreferrer noopener" class="project-link">
+                                    Visit Website <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="media-text-content">
-                        <h3>CycleCanton Marketing Video</h3>
-                        <p>A promotional video I created for CycleCanton, showcasing my video production and marketing design skills.</p>
-                        <a href="https://www.youtube.com/embed/UmOCOsrHrJQ" target="_blank" rel="noreferrer noopener">Watch Full Video</a>
+                    
+                    <!-- Information Systems -->
+                    <div class="project-card" data-category="web">
+                        <div class="project-img">
+                            <img src="https://zonghengtian.files.wordpress.com/2023/03/is-website-homepage-1.png" alt="Information Systems website" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag">Web Design</span>
+                                <span class="project-tag">Education</span>
+                                <span class="project-tag">Wordpress</span>
+                            </div>
+                            <h3 class="project-title">Information Systems</h3>
+                            <p class="project-description">A website educating visitors on the importance of Information Systems in modern business and technology environments.</p>
+                            <div class="project-links">
+                                <a href="https://ethicalandsocialissuesininformationsystems.wordpress.com/" target="_blank" rel="noreferrer noopener" class="project-link">
+                                    Visit Website <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </article>
-                
-                <div class="spacer"></div>
-                
-                <!-- VEMP Happiness App -->
-                <article class="media-text media-text-reverse">
-                    <div class="media-text-content">
-                        <h3>VEMP Happiness App</h3>
-                        <p>An Android App made using Android Studio that takes pictures of human faces as input, and provides a cheerful music playlist when it detects sadness in the face through Microsoft's Face API</p>
+                    
+                    <!-- Unity Christmas Project -->
+                    <div class="project-card" data-category="game">
+                        <div class="project-img">
+                            <img src="https://img.youtube.com/vi/sw1eJ1qFdUQ/maxresdefault.jpg" alt="Unity Christmas VR App" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag">Unity</span>
+                                <span class="project-tag">VR</span>
+                                <span class="project-tag">3D Design</span>
+                            </div>
+                            <h3 class="project-title">Unity Christmas VR App</h3>
+                            <p class="project-description">An interactive VR application built in Unity with a festive Christmas theme, showcasing my skills in 3D environment development and VR interaction design.</p>
+                            <div class="project-links">
+                                <a href="https://www.youtube.com/watch?v=sw1eJ1qFdUQ" target="_blank" rel="noreferrer noopener" class="project-link">
+                                    Watch Demo <i class="fas fa-play"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="media-text-media">
-                        <img src="https://zonghengtian.files.wordpress.com/2023/03/affective-app-screenshot-1.png" alt="VEMP Happiness App" loading="lazy" />
+                    
+                    <!-- CycleCanton Marketing Video -->
+                    <div class="project-card" data-category="web">
+                        <div class="project-img">
+                            <img src="https://img.youtube.com/vi/UmOCOsrHrJQ/maxresdefault.jpg" alt="CycleCanton Marketing Video" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag">Marketing</span>
+                                <span class="project-tag">Video</span>
+                                <span class="project-tag">Promotion</span>
+                            </div>
+                            <h3 class="project-title">CycleCanton Marketing Video</h3>
+                            <p class="project-description">A promotional video I created for CycleCanton, showcasing my video production and marketing design skills.</p>
+                            <div class="project-links">
+                                <a href="https://www.youtube.com/embed/UmOCOsrHrJQ" target="_blank" rel="noreferrer noopener" class="project-link">
+                                    Watch Video <i class="fas fa-play"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </article>
-                
-                <div class="spacer"></div>
-                
-                <!-- VEMP Well Sleep App -->
-                <article class="media-text">
-                    <div class="media-text-media">
-                        <img src="https://zonghengtian.files.wordpress.com/2023/03/app-inventor-project.png" alt="VEMP Well Sleep App" loading="lazy" />
+                    
+                    <!-- VEMP Happiness App -->
+                    <div class="project-card" data-category="mobile">
+                        <div class="project-img">
+                            <img src="https://zonghengtian.files.wordpress.com/2023/03/affective-app-screenshot-1.png" alt="VEMP Happiness App" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag">Android</span>
+                                <span class="project-tag">Face API</span>
+                                <span class="project-tag">Music</span>
+                            </div>
+                            <h3 class="project-title">VEMP Happiness App</h3>
+                            <p class="project-description">An Android App made using Android Studio that takes pictures of human faces as input and provides a cheerful music playlist when it detects sadness in the face through Microsoft's Face API.</p>
+                            <div class="project-links">
+                                <span class="project-link">App Demo Coming Soon</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="media-text-content">
-                        <h3>VEMP Well Sleep App</h3>
-                        <p>An Android App made using MIT App Inventor that promotes and helps the users to sleep better by providing them info on the benefits of sleep, as well as a functional alarm and tracking system for them to record their sleep times</p>
+                    
+                    <!-- VEMP Well Sleep App -->
+                    <div class="project-card" data-category="mobile">
+                        <div class="project-img">
+                            <img src="https://zonghengtian.files.wordpress.com/2023/03/app-inventor-project.png" alt="VEMP Well Sleep App" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag">Android</span>
+                                <span class="project-tag">App Inventor</span>
+                                <span class="project-tag">Health</span>
+                            </div>
+                            <h3 class="project-title">VEMP Well Sleep App</h3>
+                            <p class="project-description">An Android App made using MIT App Inventor that helps users sleep better by providing info on the benefits of sleep, with a functional alarm and tracking system.</p>
+                            <div class="project-links">
+                                <span class="project-link">App Demo Coming Soon</span>
+                            </div>
+                        </div>
                     </div>
-                </article>
-                
-                <div class="spacer"></div>
-                
-                <!-- SLASHER Board Game -->
-                <article class="media-text media-text-reverse">
-                    <div class="media-text-content">
-                        <h3>SLASHER Board Game</h3>
-                        <p>A Slasher movie inspired multi-player board game that gives the players the opportunities to work together and survive</p>
+                    
+                    <!-- SLASHER Board Game -->
+                    <div class="project-card" data-category="game">
+                        <div class="project-img">
+                            <img src="https://zonghengtian.files.wordpress.com/2023/03/img_2810.jpeg" alt="SLASHER Board Game" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag">Board Game</span>
+                                <span class="project-tag">Game Design</span>
+                                <span class="project-tag">Horror</span>
+                            </div>
+                            <h3 class="project-title">SLASHER Board Game</h3>
+                            <p class="project-description">A Slasher movie inspired multi-player board game that gives the players the opportunities to work together and survive against a common threat.</p>
+                            <div class="project-links">
+                                <span class="project-link">Game Details Coming Soon</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="media-text-media">
-                        <img src="https://zonghengtian.files.wordpress.com/2023/03/img_2810.jpeg" alt="SLASHER Board Game" loading="lazy" />
+                    
+                    <!-- House Adventure -->
+                    <div class="project-card" data-category="game">
+                        <div class="project-img">
+                            <img src="https://zonghengtian.files.wordpress.com/2023/03/screenshot-2023-03-14-at-15.51.14.png" alt="House Adventure" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag">Game Design</span>
+                                <span class="project-tag">Interactive Fiction</span>
+                                <span class="project-tag">Combat System</span>
+                            </div>
+                            <h3 class="project-title">House Adventure (Interactive Story)</h3>
+                            <p class="project-description">An interactive story that has a fully functional combat system as well as a basic inventory system, offering an immersive choose-your-own-adventure experience.</p>
+                            <div class="project-links">
+                                <a href="https://titanicmt.itch.io/house-adventure" target="_blank" rel="noreferrer noopener" class="project-link">
+                                    Play Game <i class="fas fa-gamepad"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </article>
-                
-                <div class="spacer"></div>
-                
-                <!-- House Adventure -->
-                <article class="media-text">
-                    <div class="media-text-media">
-                        <img src="https://zonghengtian.files.wordpress.com/2023/03/screenshot-2023-03-14-at-15.51.14.png" alt="House Adventure" loading="lazy" />
-                    </div>
-                    <div class="media-text-content">
-                        <h3>House Adventure (Interactive Story)</h3>
-                        <p>An interactive story that has a fully functional combat system as well as a basic inventory system</p>
-                        <a href="https://titanicmt.itch.io/house-adventure" target="_blank" rel="noreferrer noopener">Check Out the Game</a>
-                    </div>
-                </article>
+                </div>
             </section>
         </div>
     </main>
@@ -267,6 +323,7 @@
     </footer>
 
     <!-- Add JavaScript for mobile menu and dark mode -->
+    <script src="https://kit.fontawesome.com/3010d94d2f.js" crossorigin="anonymous"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Mobile menu elements
@@ -371,6 +428,57 @@
                     nav.style.padding = '16px 0';
                     nav.style.boxShadow = 'var(--shadow)';
                 }
+            });
+
+            // Project filtering
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+                    
+                    // Get filter value
+                    const filterValue = btn.getAttribute('data-filter');
+                    
+                    // Filter projects
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all') {
+                            card.style.display = 'flex';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            const categories = card.getAttribute('data-category').split(' ');
+                            if (categories.includes(filterValue)) {
+                                card.style.display = 'flex';
+                                setTimeout(() => {
+                                    card.style.opacity = '1';
+                                    card.style.transform = 'translateY(0)';
+                                }, 50);
+                            } else {
+                                card.style.opacity = '0';
+                                card.style.transform = 'translateY(20px)';
+                                setTimeout(() => {
+                                    card.style.display = 'none';
+                                }, 300);
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // Apply animation to project cards on page load
+            projectCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 + (index * 50));
             });
         });
     </script>

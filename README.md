@@ -6,6 +6,14 @@ This is my personal portfolio website showcasing my projects and skills as a UI/
 
 I am Zongheng (Marcus) Tian, a UI/UX Designer with a passion for game development. I create user-friendly digital experiences and interactive applications that focus on usability and engagement.
 
+## Features
+
+- **Responsive Design**: Optimized for all devices from mobile to desktop
+- **Dark/Light Mode**: Toggle between dark and light themes for comfortable viewing
+- **Project Filtering**: Filter projects by category (UI/UX, Web, Game, Mobile)
+- **Accessibility**: Focus states, keyboard navigation, and semantic HTML
+- **Performance**: Optimized assets and minimal dependencies
+
 ## Projects Featured
 
 - **UI/UX Design Projects**
@@ -24,6 +32,13 @@ I am Zongheng (Marcus) Tian, a UI/UX Designer with a passion for game developmen
 - **Game Development**
   - SLASHER Board Game
   - House Adventure (Interactive Story)
+
+## Technical Implementation
+
+- **HTML5**: Semantic markup for better accessibility and SEO
+- **CSS3**: Custom properties, flexbox, grid, and media queries for responsive design
+- **JavaScript**: DOM manipulation, event handling, and smooth animations
+- **No frameworks**: Built with vanilla HTML, CSS, and JavaScript for optimal performance
 
 ## Contact
 

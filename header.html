@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2563eb;
+            --secondary: #8b5cf6;
+            --nav-bg: rgba(255, 255, 255, 0.98);
+            --nav-text: #1f2937;
+        }
+        
+        /* Header Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            height: 70px;
+        }
+        
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            background-color: var(--nav-bg);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            height: 70px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--nav-text);
+            position: relative;
+            text-decoration: none;
+            padding: 0.5rem 0;
+        }
+        
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .hamburger-menu {
+            display: none;
+        }
+        
+        /* Hide hamburger on iframe */
+        @media (max-width: 768px) {
+            .hamburger-menu {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 30px;
+                height: 20px;
+                cursor: pointer;
+            }
+            
+            .hamburger-menu span {
+                display: block;
+                height: 2px;
+                width: 100%;
+                border-radius: 1px;
+                background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Navigation -->
+    <nav class="main-nav" role="navigation">
+        <div class="container">
+            <div class="logo">
+                <h2>Marcus Tian</h2>
+            </div>
+            <!-- Desktop Navigation -->
+            <ul class="nav-links">
+                <li><a href="#" onclick="parent.scrollToSection('about')">About</a></li>
+                <li><a href="#" onclick="parent.scrollToSection('projects')">Projects</a></li>
+                <li><a href="#" onclick="parent.scrollToSection('contact')">Contact</a></li>
+                <li>
+                    <button class="theme-toggle" onclick="parent.toggleTheme()">
+                        <i class="fas fa-moon">🌙</i>
+                    </button>
+                </li>
+            </ul>
+            <!-- Hamburger Menu for Mobile -->
+            <div class="hamburger-menu" onclick="parent.toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        // Communicate with parent frame
+        function handleMessage(event) {
+            if (event.data && event.data.type === 'update-theme') {
+                document.body.classList.toggle('dark-theme', event.data.isDark);
+            }
+        }
+        
+        window.addEventListener('message', handleMessage);
+    </script>
+</body>
+</html>

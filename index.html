@@ -25,13 +25,48 @@
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="header-fix.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Critical inline styles to ensure header visibility -->
+    <style>
+        /* Critical overrides to ensure header is always on top */
+        .main-nav {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            z-index: 2147483647 !important; /* Highest possible z-index */
+            visibility: visible !important;
+            opacity: 1 !important;
+            display: flex !important;
+            width: 100% !important;
+            height: auto !important;
+            transform: none !important;
+            pointer-events: auto !important;
+            background-color: rgba(255, 255, 255, 0.98) !important;
+        }
+        
+        /* Prevent card transforms from creating stacking contexts */
+        .project-card:hover,
+        .highlight-card:hover {
+            transform: none !important;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        /* Ensure main content has proper padding */
+        main {
+            padding-top: 80px !important;
+        }
+        
+        /* Set body padding to accommodate fixed header */
+        body {
+            padding-top: 70px !important;
+        }
+    </style>
 </head>
 <body>
-    <!-- Skip to content link for accessibility -->
-    <a href="#about" class="skip-to-content">Skip to content</a>
-
     <!-- Mobile Sidebar -->
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
     <aside class="mobile-sidebar" id="mobileSidebar">
@@ -51,7 +86,7 @@
     </aside>
 
     <!-- Fixed Navigation -->
-    <nav class="main-nav" role="navigation">
+    <nav class="main-nav overlays-page" role="navigation" style="position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; z-index: 2147483647 !important; visibility: visible !important; opacity: 1 !important; display: flex !important; background-color: rgba(255, 255, 255, 0.98) !important;">
         <div class="container">
             <div class="logo">
                 <h2>Marcus Tian</h2>
@@ -84,6 +119,39 @@
                 <p class="subtitle">UI/UX Designer, Passionate Gamer, and Aspiring Game Developer.</p>
             </section>
             
+            <!-- Featured Image Section -->
+            <section id="featured-image" class="featured-image-section">
+                <div class="featured-image-container">
+                    <div class="featured-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1553390774-b4822481c894?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Marcus Tian - Designer at Work" class="featured-portrait">
+                        <div class="featured-image-overlay">
+                            <div class="featured-quote">
+                                <p>"Design is not just what it looks like and feels like. Design is how it works."</p>
+                                <span class="quote-author">— My Design Philosophy</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="featured-image-text">
+                        <h2>Creating Meaningful Experiences</h2>
+                        <p>I combine aesthetics and functionality to craft meaningful digital experiences that resonate with users. My approach blends research, creativity, and technical expertise to solve complex design challenges.</p>
+                        <div class="featured-stats">
+                            <div class="stat">
+                                <span class="stat-number">5+</span>
+                                <span class="stat-label">Years Experience</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">20+</span>
+                                <span class="stat-label">Projects</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">15+</span>
+                                <span class="stat-label">Happy Clients</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
             <!-- Highlight Reel Section -->
             <section id="highlight-reel" class="highlight-reel-section">
                 <h2>Featured Work</h2>
@@ -93,8 +161,12 @@
                         <div class="highlight-img">
                             <img src="https://zonghengtian.files.wordpress.com/2023/03/img_2810.jpeg" alt="SLASHER Board Game" loading="lazy">
                         </div>
+                        <div class="highlight-tags">
+                            <span class="project-tag">Board Game</span>
+                            <span class="project-tag">Game Design</span>
+                        </div>
                         <h3>SLASHER Board Game</h3>
-                        <p>A multi-player board game inspired by classic slasher films.</p>
+                        <p>A multi-player board game inspired by classic slasher films where players work together to survive against a common threat.</p>
                         <a href="#projects" class="highlight-link">View Details</a>
                     </div>
 
@@ -103,8 +175,12 @@
                         <div class="highlight-img">
                             <img src="https://zonghengtian.wordpress.com/wp-content/uploads/2025/01/frame-43.png" alt="Helping Commuters Project" loading="lazy">
                         </div>
+                        <div class="highlight-tags">
+                            <span class="project-tag">UI/UX</span>
+                            <span class="project-tag">User Research</span>
+                        </div>
                         <h3>Commute Companion</h3>
-                        <p>Find quality companions for your daily commutes.</p>
+                        <p>A complete UI/UX solution helping commuters find quality companions for their daily journeys, improving the commuting experience.</p>
                         <a href="https://chipped-carpet-f30.notion.site/Helping-Commuters-Find-Quality-Companions-1568912eb0b580058fc5d5b8029d5383?pvs=4" target="_blank" rel="noreferrer noopener" class="highlight-link">View Case Study</a>
                     </div>
 
@@ -113,8 +189,12 @@
                         <div class="highlight-img">
                             <img src="https://zonghengtian.wordpress.com/wp-content/uploads/2025/01/ux-tweak.jpg" alt="Information Architecture Projects" loading="lazy">
                         </div>
+                        <div class="highlight-tags">
+                            <span class="project-tag">UI/UX</span>
+                            <span class="project-tag">Information Design</span>
+                        </div>
                         <h3>Information Architecture</h3>
-                        <p>Analyzing and improving website structures and user flows.</p>
+                        <p>Comprehensive analysis and improvement of website structures using tree testing, card sorting, and content inventory tools.</p>
                         <a href="https://zonghengtian.wordpress.com/hi-im-zongheng-a-new-guaduate-from-uoft/information-architechture-projects/" target="_blank" rel="noreferrer noopener" class="highlight-link">View Details</a>
                     </div>
 
@@ -123,8 +203,12 @@
                         <div class="highlight-img">
                             <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="PitchIn Event Organizer" loading="lazy">
                         </div>
+                        <div class="highlight-tags">
+                            <span class="project-tag">UI/UX</span>
+                            <span class="project-tag">Collaborative Design</span>
+                        </div>
                         <h3>PitchIn Event Organizer</h3>
-                        <p>Collaborative event planning for friends and small communities.</p>
+                        <p>A collaborative platform for friends and communities to plan events together with features for task delegation and expense sharing.</p>
                         <a href="https://chipped-carpet-f30.notion.site/PitchIn-Collaborative-Event-Planning-App-Project-Documentation-1dc8912eb0b580309691f64ebca9538d?pvs=4" target="_blank" rel="noreferrer noopener" class="highlight-link">View Details</a>
                     </div>
                 </div>
@@ -137,8 +221,8 @@
                 <div class="project-filters">
                     <button class="filter-btn active" data-filter="all">All Projects</button>
                     <button class="filter-btn" data-filter="uiux">UI/UX Design</button>
-                    <button class="filter-btn" data-filter="web">Web Development</button>
-                    <button class="filter-btn" data-filter="game">Game Development</button>
+                    <button class="filter-btn" data-filter="web">Web Dev</button>
+                    <button class="filter-btn" data-filter="game">Game Dev</button>
                     <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
                 </div>
                 
@@ -173,8 +257,8 @@
                         <div class="project-content">
                             <div class="project-tags">
                                 <span class="project-tag">UI/UX</span>
-                                <span class="project-tag">Collaborative Design</span>
-                                <span class="project-tag">Community</span>
+                                <span class="project-tag">Usability Testing</span>
+                                <span class="project-tag">Iterative Design</span>
                             </div>
                             <h3 class="project-title">PitchIn: Collaborative Event Planning</h3>
                             <p class="project-description">An app designed to help friends and small communities organize events together, with features for task delegation, expense sharing, and collaborative decision-making.</p>
@@ -402,165 +486,8 @@
         </div>
     </footer>
 
-    <!-- Add JavaScript for mobile menu and dark mode -->
+    <!-- Add JavaScript -->
     <script src="https://kit.fontawesome.com/3010d94d2f.js" crossorigin="anonymous"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu elements
-            const hamburger = document.getElementById('hamburgerMenu');
-            const sidebar = document.getElementById('mobileSidebar');
-            const overlay = document.getElementById('sidebarOverlay');
-            const closeBtn = document.getElementById('closeSidebar');
-            
-            // Dark mode elements
-            const themeToggle = document.getElementById('themeToggle');
-            const themeToggleMobile = document.getElementById('themeToggleMobile');
-            
-            // Check for saved theme preference or respect OS preference
-            const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-            const currentTheme = localStorage.getItem("theme");
-            
-            // Apply theme preference
-            if (currentTheme === "dark") {
-                document.body.setAttribute("data-theme", "dark");
-                updateThemeIcons(true);
-            } else if (currentTheme === "light") {
-                document.body.setAttribute("data-theme", "light");
-                updateThemeIcons(false);
-            } else if (prefersDarkScheme.matches) {
-                document.body.setAttribute("data-theme", "dark");
-                updateThemeIcons(true);
-            }
-            
-            // Update moon/sun icons
-            function updateThemeIcons(isDark) {
-                const themeIcons = [
-                    themeToggle.querySelector('i'),
-                    themeToggleMobile.querySelector('i')
-                ];
-                
-                themeIcons.forEach(icon => {
-                    if (isDark) {
-                        icon.classList.remove('fa-moon');
-                        icon.classList.add('fa-sun');
-                    } else {
-                        icon.classList.remove('fa-sun');
-                        icon.classList.add('fa-moon');
-                    }
-                });
-            }
-            
-            // Theme toggle click handler
-            function toggleTheme() {
-                if (document.body.getAttribute("data-theme") === "dark") {
-                    document.body.removeAttribute("data-theme");
-                    localStorage.setItem("theme", "light");
-                    updateThemeIcons(false);
-                } else {
-                    document.body.setAttribute("data-theme", "dark");
-                    localStorage.setItem("theme", "dark");
-                    updateThemeIcons(true);
-                }
-            }
-            
-            // Toggle sidebar function
-            function toggleSidebar() {
-                sidebar.classList.toggle('active');
-                overlay.style.display = sidebar.classList.contains('active') ? 'block' : 'none';
-                document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
-            }
-            
-            // Event listeners for mobile menu
-            hamburger.addEventListener('click', toggleSidebar);
-            hamburger.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    toggleSidebar();
-                    e.preventDefault();
-                }
-            });
-            
-            closeBtn.addEventListener('click', toggleSidebar);
-            closeBtn.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    toggleSidebar();
-                    e.preventDefault();
-                }
-            });
-            
-            overlay.addEventListener('click', toggleSidebar);
-            
-            // Close sidebar when clicking a mobile nav link
-            document.querySelectorAll('.mobile-nav-links a').forEach(link => {
-                link.addEventListener('click', toggleSidebar);
-            });
-            
-            // Event listeners for theme toggle
-            themeToggle.addEventListener('click', toggleTheme);
-            themeToggleMobile.addEventListener('click', toggleTheme);
-            
-            // Add scroll effect to header
-            window.addEventListener('scroll', function() {
-                const nav = document.querySelector('.main-nav');
-                if (window.scrollY > 50) {
-                    nav.style.padding = '10px 0';
-                    nav.style.boxShadow = 'var(--shadow-md)';
-                } else {
-                    nav.style.padding = '16px 0';
-                    nav.style.boxShadow = 'var(--shadow)';
-                }
-            });
-
-            // Project filtering
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const projectCards = document.querySelectorAll('.project-card');
-            
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    filterBtns.forEach(btn => btn.classList.remove('active'));
-                    
-                    // Add active class to clicked button
-                    btn.classList.add('active');
-                    
-                    // Get filter value
-                    const filterValue = btn.getAttribute('data-filter');
-                    
-                    // Filter projects
-                    projectCards.forEach(card => {
-                        if (filterValue === 'all') {
-                            card.style.display = 'flex';
-                            setTimeout(() => {
-                                card.style.opacity = '1';
-                                card.style.transform = 'translateY(0)';
-                            }, 50);
-                        } else {
-                            const categories = card.getAttribute('data-category').split(' ');
-                            if (categories.includes(filterValue)) {
-                                card.style.display = 'flex';
-                                setTimeout(() => {
-                                    card.style.opacity = '1';
-                                    card.style.transform = 'translateY(0)';
-                                }, 50);
-                            } else {
-                                card.style.opacity = '0';
-                                card.style.transform = 'translateY(20px)';
-                                setTimeout(() => {
-                                    card.style.display = 'none';
-                                }, 300);
-                            }
-                        }
-                    });
-                });
-            });
-            
-            // Apply animation to project cards on page load
-            projectCards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 100 + (index * 50));
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

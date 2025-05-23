@@ -19,6 +19,12 @@
             --nav-text: #1f2937;
         }
         
+        /* Dark mode theme */
+        body.dark-theme {
+            --nav-bg: rgba(17, 24, 39, 0.98);
+            --nav-text: #f9fafb;
+        }
+        
         /* Header Styles */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -41,6 +47,7 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             height: 70px;
+            transition: background-color 0.3s ease;
         }
         
         .container {
@@ -81,6 +88,7 @@
             position: relative;
             text-decoration: none;
             padding: 0.5rem 0;
+            transition: color 0.3s ease;
         }
         
         .theme-toggle {
@@ -93,6 +101,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            color: var(--nav-text);
         }
         
         .hamburger-menu {

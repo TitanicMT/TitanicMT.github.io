@@ -91,8 +91,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.scrollY > 50) {
             nav.style.padding = '10px 0';
             nav.style.boxShadow = 'var(--shadow-md)';
+            // Use the CSS variable for background color to respect dark mode
             nav.style.background = 'var(--nav-bg)';
-            nav.style.borderBottom = '1px solid rgba(0, 0, 0, 0.1)';
+            // Use a CSS variable for border color in dark mode
+            nav.style.borderBottom = document.body.classList.contains('dark-theme') 
+                ? '1px solid rgba(255, 255, 255, 0.1)'
+                : '1px solid rgba(0, 0, 0, 0.1)';
         } else {
             nav.style.padding = '16px 0';
             nav.style.boxShadow = 'var(--shadow)';
@@ -202,15 +206,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const currentTheme = localStorage.getItem("theme");
         
         // Apply theme preference
+        let isDarkMode = false;
         if (currentTheme === "dark") {
             document.body.classList.add('dark-theme');
             updateThemeIcons(true);
+            isDarkMode = true;
         } else if (currentTheme === "light") {
             document.body.classList.remove('dark-theme');
             updateThemeIcons(false);
+            isDarkMode = false;
         } else if (prefersDarkScheme.matches) {
             document.body.classList.add('dark-theme');
             updateThemeIcons(true);
+            isDarkMode = true;
         }
         
         // Update moon/sun icons
@@ -231,9 +239,34 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
+        // Update header border color based on initial theme
+        const nav = document.querySelector('.main-nav');
+        if (nav && window.scrollY > 50) {
+            nav.style.borderBottom = isDarkMode 
+                ? '1px solid rgba(255, 255, 255, 0.1)'
+                : '1px solid rgba(0, 0, 0, 0.1)';
+        }
+        
+        // Notify any header iframe about the initial theme
+        setTimeout(() => {
+            const headerFrame = document.querySelector('iframe[src*="header.html"]');
+            if (headerFrame && headerFrame.contentWindow) {
+                try {
+                    headerFrame.contentWindow.postMessage({
+                        type: 'update-theme',
+                        isDark: isDarkMode
+                    }, '*');
+                } catch (e) {
+                    console.error('Error communicating with header iframe:', e);
+                }
+            }
+        }, 500); // Small delay to ensure iframe is loaded
+        
         // Theme toggle click handler
         function toggleTheme() {
-            if (document.body.classList.contains('dark-theme')) {
+            const isDarkMode = !document.body.classList.contains('dark-theme');
+            
+            if (!isDarkMode) {
                 document.body.classList.remove('dark-theme');
                 localStorage.setItem("theme", "light");
                 updateThemeIcons(false);
@@ -241,6 +274,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.body.classList.add('dark-theme');
                 localStorage.setItem("theme", "dark");
                 updateThemeIcons(true);
+            }
+            
+            // Update the header border color based on the new theme
+            const nav = document.querySelector('.main-nav');
+            if (nav && window.scrollY > 50) {
+                nav.style.borderBottom = isDarkMode 
+                    ? '1px solid rgba(255, 255, 255, 0.1)'
+                    : '1px solid rgba(0, 0, 0, 0.1)';
+            }
+            
+            // Notify any header iframe about the theme change
+            const headerFrame = document.querySelector('iframe[src*="header.html"]');
+            if (headerFrame && headerFrame.contentWindow) {
+                try {
+                    headerFrame.contentWindow.postMessage({
+                        type: 'update-theme',
+                        isDark: isDarkMode
+                    }, '*');
+                } catch (e) {
+                    console.error('Error communicating with header iframe:', e);
+                }
             }
         }
         

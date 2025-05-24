@@ -33,7 +33,7 @@
 .highlight-card:focus-within {
   transform: translateY(-7px) !important;
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1), 0 10px 15px rgba(0, 0, 0, 0.05) !important;
-  border-color: var(--primary) !important;
+  border-color: transparent !important;
 }
 
 /* Ensure dark mode has proper box-shadow */

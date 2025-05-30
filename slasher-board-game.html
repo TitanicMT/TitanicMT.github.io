@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SLASHER Board Game - A horror-themed multi-player board game inspired by classic slasher films. Designed by Zongheng (Marcus) Tian.">
+    <meta name="keywords" content="SLASHER Board Game, Horror Game, Board Game Design, Marcus Tian, Zongheng Tian">
+    <meta name="author" content="Zongheng (Marcus) Tian">
+    <meta property="og:title" content="SLASHER Board Game - Marcus Tian">
+    <meta property="og:description" content="A multi-player board game inspired by classic slasher films where players work together to survive against a common threat.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://titanicmt.github.io/slasher-board-game.html">
+    <meta name="theme-color" content="#3490dc">
+    
+    <title>SLASHER Board Game | Marcus Tian</title>
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%233490dc' d='M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 22c-5.52 0-10-4.48-10-10S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm-1-8h2v2h-2v-2zm0-10h2v8h-2V4z'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%233490dc' d='M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 22c-5.52 0-10-4.48-10-10S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm-1-8h2v2h-2v-2zm0-10h2v8h-2V4z'/%3E%3C/svg%3E">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="header-fix.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Critical inline styles to ensure header visibility -->
+    <style>
+        /* Critical overrides to ensure header is always on top */
+        .main-nav {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            z-index: 2147483647 !important; /* Highest possible z-index */
+            visibility: visible !important;
+            opacity: 1 !important;
+            display: flex !important;
+            width: 100% !important;
+            height: auto !important;
+            transform: none !important;
+            pointer-events: auto !important;
+            background-color: var(--nav-bg) !important;
+        }
+        
+        /* Dark mode fixes for the header */
+        body.dark-theme .main-nav {
+            background-color: var(--nav-bg) !important;
+        }
+        
+        /* Project-specific styles */
+        .project-hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 80px 0 60px;
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('https://zonghengtian.files.wordpress.com/2023/03/img_2810.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+        
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(18, 18, 18, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%);
+            z-index: 1;
+        }
+        
+        .project-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .project-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            background: none;
+            -webkit-text-fill-color: white;
+        }
+        
+        .project-hero p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+        }
+        
+        .project-badges {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .project-badge {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .project-section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .project-section:last-child {
+            border-bottom: none;
+        }
+        
+        .project-section h2 {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+        }
+        
+        .project-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 2px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--card-border);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .feature-card p {
+            color: var(--gray-600);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 250px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 20px 15px 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            margin: 60px 0;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .cta-content h2 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 2.8rem;
+        }
+        
+        .cta-content p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary);
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            text-decoration: none;
+        }
+        
+        .development-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% + 30px);
+            background-color: var(--gray-300);
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .timeline-date {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 10px;
+        }
+        
+        .project-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .spec-item {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--card-border);
+        }
+        
+        .spec-item h4 {
+            color: var(--gray-600);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .spec-item p {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0;
+        }
+        
+        .back-to-projects {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 40px;
+            color: var(--primary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-projects i {
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-to-projects:hover {
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+        
+        .back-to-projects:hover i {
+            transform: translateX(-5px);
+        }
+        
+        @media (max-width: 768px) {
+            .project-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .project-hero p {
+                font-size: 1.2rem;
+            }
+            
+            .project-section h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+            
+            .cta-content p {
+                font-size: 1.1rem;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .project-badges {
+                gap: 10px;
+            }
+            
+            .project-badge {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+            
+            .timeline-item {
+                padding-left: 35px;
+            }
+            
+            .timeline-item::before {
+                width: 15px;
+                height: 15px;
+            }
+            
+            .timeline-item::after {
+                left: 7px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="mobile-sidebar" id="mobileSidebar">
+        <div class="mobile-sidebar-close" id="closeSidebar" aria-label="Close menu" role="button" tabindex="0">
+            <i class="fas fa-times"></i>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li>
+                <button class="theme-toggle" id="themeToggleMobile" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Fixed Navigation -->
+    <nav class="main-nav overlays-page" role="navigation" style="position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; z-index: 2147483647 !important; visibility: visible !important; opacity: 1 !important; display: flex !important;">
+        <div class="container">
+            <div class="logo">
+                <h2>Marcus Tian</h2>
+            </div>
+            <!-- Desktop Navigation -->
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+            <!-- Hamburger Menu for Mobile -->
+            <div class="hamburger-menu" id="hamburgerMenu" aria-label="Menu" role="button" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Project Hero Section -->
+        <section class="project-hero">
+            <div class="project-hero-content">
+                <h1>SLASHER Board Game</h1>
+                <div class="project-badges">
+                    <span class="project-badge">Board Game</span>
+                    <span class="project-badge">Game Design</span>
+                    <span class="project-badge">Horror</span>
+                    <span class="project-badge">Multiplayer</span>
+                </div>
+                <p>A thrilling multiplayer board game inspired by classic slasher films, where players must work together to survive against a relentless threat. Will you escape or become the next victim?</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Project Overview Section -->
+            <section class="project-section">
+                <h2>Project Overview</h2>
+                <p>SLASHER is a cooperative survival horror board game designed for 3-6 players. Drawing inspiration from classic slasher films of the 70s and 80s, players take on the roles of stereotypical characters trying to survive the night against a deadly killer. Each player has unique abilities and weaknesses, encouraging teamwork and strategic planning to escape alive.</p>
+                
+                <p>What sets SLASHER apart is its dynamic gameplay that creates tension through unpredictable events and the constant threat of the killer, who becomes more powerful as the game progresses. Will you risk helping your friends or save yourself?</p>
+                
+                <div class="project-specs">
+                    <div class="spec-item">
+                        <h4>Players</h4>
+                        <p>3-6</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>Play Time</h4>
+                        <p>45-60 min</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>Age</h4>
+                        <p>14+</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>Complexity</h4>
+                        <p>Medium</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Features Section -->
+            <section class="project-section">
+                <h2>Key Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Character Roles</h3>
+                        <p>Each player takes on a unique character archetype with special abilities and disadvantages, creating varied gameplay experiences with different group compositions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-skull"></i>
+                        <h3>Escalating Terror</h3>
+                        <p>As the game progresses, the killer becomes more powerful and unpredictable, increasing tension and forcing players to adapt their strategies.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-dice"></i>
+                        <h3>Dynamic Gameplay</h3>
+                        <p>No two games are alike with randomized map layouts, event cards, and killer behavior creating a highly replayable experience.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Strategic Choices</h3>
+                        <p>Players must balance gathering resources, completing objectives, and evading the killer while deciding when to help teammates or save themselves.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-door-open"></i>
+                        <h3>Multiple Escape Routes</h3>
+                        <p>Several ways to win create different strategic paths and encourage diverse approaches to survival in each game.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-film"></i>
+                        <h3>Horror Movie Atmosphere</h3>
+                        <p>Artwork, mechanics, and events are designed to evoke the feeling of being in a classic slasher film, complete with tropes and unexpected twists.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Gallery Section -->
+            <section class="project-section">
+                <h2>Game Gallery</h2>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="https://zonghengtian.files.wordpress.com/2023/03/img_2810.jpeg" alt="SLASHER Board Game - Main Board" loading="lazy">
+                        <div class="gallery-caption">Main game board showing the camp layout</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1611371805429-12b7e19b2c6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="SLASHER Board Game - Character Cards" loading="lazy">
+                        <div class="gallery-caption">Character cards with unique abilities</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="SLASHER Board Game - Event Cards" loading="lazy">
+                        <div class="gallery-caption">Event cards that add unpredictability</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1606503154519-4f997e6d5c36?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="SLASHER Board Game - Gameplay Session" loading="lazy">
+                        <div class="gallery-caption">Game in progress with players</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Development Process -->
+            <section class="project-section">
+                <h2>Development Process</h2>
+                <div class="development-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">January 2023</div>
+                        <div class="timeline-content">
+                            <h3>Concept Development</h3>
+                            <p>Initial game concept and mechanics were drafted, focusing on creating tension and meaningful player choices in a horror setting.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">March 2023</div>
+                        <div class="timeline-content">
+                            <h3>Prototype Testing</h3>
+                            <p>First paper prototype created and tested with focus groups to refine core gameplay mechanics and balance character abilities.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">May 2023</div>
+                        <div class="timeline-content">
+                            <h3>Art Direction</h3>
+                            <p>Established visual style and started artwork creation for game board, cards, and character pieces with a retro horror aesthetic.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">August 2023</div>
+                        <div class="timeline-content">
+                            <h3>Expanded Playtesting</h3>
+                            <p>Wider playtesting with multiple groups to identify balance issues and refine gameplay dynamics between survivors and killer.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">November 2023</div>
+                        <div class="timeline-content">
+                            <h3>Final Development</h3>
+                            <p>Finalizing rulebook, game components, and preparing for production with feedback from extensive playtesting incorporated.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">Current Status</div>
+                        <div class="timeline-content">
+                            <h3>Pre-Production</h3>
+                            <p>The game is currently in late development with plans for crowdfunding to support production in the coming months.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Call to Action Section -->
+            <section class="cta-section">
+                <div class="cta-content">
+                    <h2>Stay Updated on SLASHER</h2>
+                    <p>Join our newsletter to receive updates on the game's development, playtesting opportunities, and be the first to know when SLASHER launches.</p>
+                    <a href="#" class="cta-button">Subscribe for Updates</a>
+                </div>
+            </section>
+            
+            <!-- Back to Projects -->
+            <div class="project-section">
+                <a href="index.html#projects" class="back-to-projects">
+                    <i class="fas fa-arrow-left"></i> Back to All Projects
+                </a>
+            </div>
+        </div>
+    </main>
+    
+    <footer id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <div class="custom-social-container">
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/zongheng-tian/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                
+                <!-- GitHub -->
+                <a href="https://github.com/TitanicMT" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                
+                <!-- Email -->
+                <a href="mailto:zongheng.tian@mail.utoronto.ca" aria-label="Email me">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                        <path d="M12 12.713l-11.985-9.713h23.971l-11.986 9.713zm-5.425-1.822l-6.575-5.329v12.501l6.575-7.172zm10.85 0l6.575 7.172v-12.501l-6.575 5.329zm-1.557 1.261l-3.868 3.135-3.868-3.135-8.11 8.848h23.956l-8.11-8.848z"/>
+                    </svg>
+                </a>
+            </div>
+            <p>© 2024 Zongheng (Marcus) Tian. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Add JavaScript -->
+    <script src="https://kit.fontawesome.com/3010d94d2f.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
